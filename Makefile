@@ -12,9 +12,6 @@ rkgrep_test: rkgrep_test.o rkgrep.o bloom.o rkgrep_harness.o
 bmgrep_test: bmgrep_test.o bmgrep.o bmgrep.h
 	gcc $^ -o $@ -lrt -lm
 
-rkgrep_harness.o: rkgrep_harness.c rkgrep.c rkgrep.h bloom.c bloom.h
-	gcc -c rkgrep_harness.c
-
 %.o : %.c
 	gcc $(CFLAGS) -DANSWER=$(ANSWER) -c ${<}
 
